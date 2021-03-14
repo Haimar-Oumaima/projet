@@ -1,0 +1,82 @@
+{% extends 'layouts/adminLayout.html.twig' %}
+
+{% block body %}
+ <p> 
+    {% set flash_notices = app.session.flashbag.get('Msg') %}
+                    {% set flash_notice = app.session.flashbag.get('MsgE') %}
+                    {% if flash_notice is not empty %}
+                        
+                            <div class="alert alert-danger">{{ Msg}} 
+                            
+                            </div>
+                        
+                    {% endif %}
+                    {% if flash_notices is not empty %}
+                        {% for Msg in flash_notices %}
+                            <div class="alert alert-success">{{ Msg}} </div>
+                        {% endfor%}
+                    {% endif %}
+    </p>
+    <h2 class="titre">Nouvelle thématique ou matière</h2>
+    <div class="box">
+        <div class="box_ajout">
+        <form method="post" action="{{ path('admin_ajouter_categorie')}}" >
+            <div>
+            <label>Thematique</label>
+            <input type="radio" id="thema" onclick="fct1()" name="choix" value="thema">
+            </div>
+
+            <div>
+            <label>Matiere</label>
+            <input type="radio" id="matiere" onclick="fct2()" name="choix" value="matiere">
+            </div>
+            <div class="contenu"> 
+                <div id="ici">
+                    <div id="thema1" style="display:none;"><label>Veuillez saisir votre nouvelle thematique</label><input type="text" name="Thematique"/></div>
+                    <div id="matiere1" style="display:none;"><label>Veuillez saisir votre nouvelle Matiere</label><input type="text" name="Matiere"/></div>
+                </div> 
+            </div>
+     
+            <div class="">
+              
+            </div>
+            <div class="">
+            
+            </div>
+            <input type="submit" value="Ajouter"></input>
+          </form>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function fct1() {
+        
+  var checkBox = document.getElementById("thema");
+  if (checkBox.checked == true){
+    //alert("ok");
+     $("#thema1").css({"display": "block"});
+     $("#matiere1").css({"display": "none"});
+      //document.getElementById('ici').innerHTML ='<label>Thematique</label><input type="text" name="Thematique"/>';
+  } 
+    
+  }
+
+   function fct2() {
+  var checkBox = document.getElementById("matiere");
+  if (checkBox.checked == true){
+      $("#matiere1").css({"display": "block"});
+      $("#thema1").css({"display": "none"});
+      //document.getElementById('ici').innerHTML ='<label>Matiere</label><input type="text" name="Matiere"/>';
+  } 
+    
+  }
+
+     $(document).ready(function(){
+          
+
+     });
+</script>
+{% endblock %}

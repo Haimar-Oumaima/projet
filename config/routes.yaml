@@ -1,0 +1,16 @@
+index :
+    path: /
+    controller: App\Controller\SecurityController::login
+
+admin :
+    resource: routes/admin/routes.yaml
+    prefix: /admin
+
+user : 
+    resource: routes/user/routes.yaml
+    prefix: /user
+
+logout : 
+    path: /logout
+    controller: App\Controller\SecurityController:logout
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/connexion.css">
+        <title>Connexion</title>
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    {{ form_start(login_form) }}
+    <div id="">
+        {{ form_errors(login_form) }}
+    </div>
+    <div class="connexion">
+        <div class="conn">Connexion</div>
+        <div class="zone_text">
+            <i class="fas fa-user"></i>
+            <div class="input">{{ form_row(login_form.login) }}</div>
+        </div>
+        <div class="zone_text">
+            <i class="fas fa-lock"></i>
+            <div class="input">{{ form_row(login_form.password,{'attr':{'placeholder':'Mot de passe'}}) }}</div>
+        </div>
+        {{ form_row(login_form.submit,{'attr':{'class':'btn'}}) }}
+    </div>
+    {{ form_end(login_form) }}
+
+</html>
