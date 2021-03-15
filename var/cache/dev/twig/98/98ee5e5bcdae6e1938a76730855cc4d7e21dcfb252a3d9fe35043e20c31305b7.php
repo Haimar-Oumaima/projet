@@ -126,7 +126,7 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             </div>
             <div class=\"contenu\"> 
                 <div id=\"ici\">
-                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle thematique</label><input type=\"text\" name=\"Thematique\"/></div>
+                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Thematique</label><input type=\"text\" name=\"Thematique\"/></div>
                     <div id=\"matiere1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Matiere</label><input type=\"text\" name=\"Matiere\"/></div>
                 </div> 
             </div>
@@ -143,36 +143,8 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
     </div>
 
 
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script type=\"text/javascript\">
 
-    function fct1() {
-        
-  var checkBox = document.getElementById(\"thema\");
-  if (checkBox.checked == true){
-    //alert(\"ok\");
-     \$(\"#thema1\").css({\"display\": \"block\"});
-     \$(\"#matiere1\").css({\"display\": \"none\"});
-      //document.getElementById('ici').innerHTML ='<label>Thematique</label><input type=\"text\" name=\"Thematique\"/>';
-  } 
-    
-  }
-
-   function fct2() {
-  var checkBox = document.getElementById(\"matiere\");
-  if (checkBox.checked == true){
-      \$(\"#matiere1\").css({\"display\": \"block\"});
-      \$(\"#thema1\").css({\"display\": \"none\"});
-      //document.getElementById('ici').innerHTML ='<label>Matiere</label><input type=\"text\" name=\"Matiere\"/>';
-  } 
-    
-  }
-
-     \$(document).ready(function(){
-          
-
-     });
-</script>
+   
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -233,7 +205,7 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             </div>
             <div class=\"contenu\"> 
                 <div id=\"ici\">
-                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle thematique</label><input type=\"text\" name=\"Thematique\"/></div>
+                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Thematique</label><input type=\"text\" name=\"Thematique\"/></div>
                     <div id=\"matiere1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Matiere</label><input type=\"text\" name=\"Matiere\"/></div>
                 </div> 
             </div>
@@ -250,36 +222,8 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
     </div>
 
 
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script type=\"text/javascript\">
 
-    function fct1() {
-        
-  var checkBox = document.getElementById(\"thema\");
-  if (checkBox.checked == true){
-    //alert(\"ok\");
-     \$(\"#thema1\").css({\"display\": \"block\"});
-     \$(\"#matiere1\").css({\"display\": \"none\"});
-      //document.getElementById('ici').innerHTML ='<label>Thematique</label><input type=\"text\" name=\"Thematique\"/>';
-  } 
-    
-  }
-
-   function fct2() {
-  var checkBox = document.getElementById(\"matiere\");
-  if (checkBox.checked == true){
-      \$(\"#matiere1\").css({\"display\": \"block\"});
-      \$(\"#thema1\").css({\"display\": \"none\"});
-      //document.getElementById('ici').innerHTML ='<label>Matiere</label><input type=\"text\" name=\"Matiere\"/>';
-  } 
-    
-  }
-
-     \$(document).ready(function(){
-          
-
-     });
-</script>
+   
 {% endblock %}", "/admin/ajouterCategorie.html.twig", "/home/oumaima/S6/Projet/TP/Projet-S6-master/templates/admin/ajouterCategorie.html.twig");
     }
 }

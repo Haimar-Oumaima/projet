@@ -29,6 +29,7 @@ return [
         '/admin/ajouter_categorie' => [[['_route' => 'admin_ajouter_categorie', '_controller' => 'App\\Controller\\AdminController::ajouter_categorie'], null, null, null, false, false, null]],
         '/admin/ajouter_user' => [[['_route' => 'admin_ajouter_user', '_controller' => 'App\\Controller\\AdminController::ajouter_user'], null, null, null, false, false, null]],
         '/admin/modifier_user' => [[['_route' => 'admin_modifier_user', '_controller' => 'App\\Controller\\AdminController::modifier_user'], null, null, null, false, false, null]],
+        '/admin/thematiques_matieres' => [[['_route' => 'admin_thematiques_matieres', '_controller' => 'App\\Controller\\AdminController::thematiques_matieres'], null, null, null, false, false, null]],
         '/user/index' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, null, null, false, false, null]],
         '/user/questions' => [[['_route' => 'user_questions', '_controller' => 'App\\Controller\\UserController::questions_list'], null, null, null, false, false, null]],
     ],
@@ -49,6 +50,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/admin/Supprimer/([^/]++)(*:194)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -58,8 +60,9 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        194 => [
+            [['_route' => 'admin_thematique_Supprimer', '_controller' => 'App\\Controller\\AdminController::Supprimer'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

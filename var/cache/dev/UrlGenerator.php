@@ -28,6 +28,8 @@ return [
     'admin_ajouter_categorie' => [[], ['_controller' => 'App\\Controller\\AdminController::ajouter_categorie'], [], [['text', '/admin/ajouter_categorie']], [], []],
     'admin_ajouter_user' => [[], ['_controller' => 'App\\Controller\\AdminController::ajouter_user'], [], [['text', '/admin/ajouter_user']], [], []],
     'admin_modifier_user' => [[], ['_controller' => 'App\\Controller\\AdminController::modifier_user'], [], [['text', '/admin/modifier_user']], [], []],
+    'admin_thematiques_matieres' => [[], ['_controller' => 'App\\Controller\\AdminController::thematiques_matieres'], [], [['text', '/admin/thematiques_matieres']], [], []],
+    'admin_thematique_Supprimer' => [['id'], ['_controller' => 'App\\Controller\\AdminController::Supprimer'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/Supprimer']], [], []],
     'user_index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/user/index']], [], []],
     'user_questions' => [[], ['_controller' => 'App\\Controller\\UserController::questions_list'], [], [['text', '/user/questions']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController:logout'], [], [['text', '/logout']], [], []],

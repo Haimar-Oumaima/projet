@@ -6,6 +6,7 @@ use App\Entity\Thematique;
 use App\Entity\Matiere;
 use App\Form\ThematiqueType;
 use App\Form\MatiereType;
+use App\Entity\TypeQuestion;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -95,28 +96,53 @@ class AdminController extends AbstractController
            array('filtre_question_form' => $filtre_question_form->createView()));
     }
 
-    public function ajouter_question(Request $request)
+    public function thematiques_matieres(Request $request)
     {
         $thematique= new Thematique;
-        $thematique=$this->getDoctrine()->getRepository(Thematique::class)->find($id);
+        $form = $this->createFormBuilder(null)
+                ->add('titre', TextType::class)
+                ->add('submit', SubmitType::class, array('label' => 'Rechercher', 'attr' => ['class' => 'btn btn-primary']  ))
+                ->getForm();
 
-        $ajouter_question_form = $this->createFormBuilder(null)
-        ->add('question',TextareaType::class, array('label' => 'Question : ', 'attr' => array('placeholder' => 'Ecrire votre question...')))
-        ->add('type',ChoiceType::class , array('label' => 'Type : ', 'choices' => [ 'Thematique' => $thematique, 'Vrai ou faux' => null, 'Choix unique' => null, 'Réponse libre' => null]))
-        ->add('propositions', TextType::class, array('label' => 'Propositions : '))
-        ->add('autre_proposition',ButtonType::class, array('label' => '+'))
-        ->add('thematique',ChoiceType::class,array('label' => 'Thématique : ', 'choices' => [ 'UML' => null, 'Item2' => null, 'Item3' => null]))
-        ->add('matiere',ChoiceType::class,array('label' => 'Matière : ', 'choices' => [ 'Item1' => null, 'Item2' => null, 'Item3' => null]))
-        ->add('autre_question',ButtonType::class, array('label' => '+ Autre Question'))
-        ->add('ajouter',SubmitType::class, array('label' => 'Ajouter'))
-        ->getForm();
-        $ajouter_question_form->handleRequest($request);
-        if($ajouter_question_form->isSubmitted() && $ajouter_question_form->isValid()) {
-            dd('ajouter form');
-        }
-        return $this->render('/admin/ajouterQuestion.html.twig',
-           array('ajouter_question_form' => $ajouter_question_form->createView()));
+        /* Recherche par titre de film 
+            $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()) { 
+               
+                $titre = $form['titre']->getData();
+
+                $acteurs = $this->getDoctrine()->getRepository(Acteur::class)->findByFilm($titre);
+                return $this->render('acteur/accueil.html.twig', 
+                    array('Acteur' => $acteurs, 
+                    'myform' => $form->createView()));
+            }*/
+        $thematique=$this->getDoctrine()->getRepository(Thematique::class)->findAll();
+
+        return $this->render('admin/ThematiqueMatiere.html.twig',  
+            array( 'thematique' => $thematique, 
+            'myform' => $form->createView() ));
     }
+    public function ajouter_question(Request $request)
+    {
+        $em=$this->getDoctrine()->getManager()->getRepository(Matiere::class)->findAll();   
+        //$em=$em->getLibelleMatiere();
+        $em1=$this->getDoctrine()->getManager()->getRepository(Thematique::class)->findAll();
+        $em2=$this->getDoctrine()->getManager()->getRepository(TypeQuestion::class)->findAll();
+        return $this->render('/admin/ajouterQuestion.html.twig',
+           array('em'=>$em,
+                'em1'=>$em1,
+                'em2'=>$em2));
+    }
+
+    public function Supprimer($id) {
+        $em=$this->getDoctrine()->getManager();
+        $res=$em->getRepository(Thematique::class);
+        $Thematique=$res->find($id);
+        $em->remove($Thematique);
+        $em->flush();
+        $this->addFlash('danger', 'Thematique a été bien supprimé');
+        return $this->redirectToRoute('admin_thematiques_matieres',["Thematique"=>$Thematique]);
+    }
+
 
     public function ajouter_categorie(Request $request)
     {

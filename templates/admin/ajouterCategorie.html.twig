@@ -32,7 +32,7 @@
             </div>
             <div class="contenu"> 
                 <div id="ici">
-                    <div id="thema1" style="display:none;"><label>Veuillez saisir votre nouvelle thematique</label><input type="text" name="Thematique"/></div>
+                    <div id="thema1" style="display:none;"><label>Veuillez saisir votre nouvelle Thematique</label><input type="text" name="Thematique"/></div>
                     <div id="matiere1" style="display:none;"><label>Veuillez saisir votre nouvelle Matiere</label><input type="text" name="Matiere"/></div>
                 </div> 
             </div>
@@ -49,34 +49,6 @@
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
 
-    function fct1() {
-        
-  var checkBox = document.getElementById("thema");
-  if (checkBox.checked == true){
-    //alert("ok");
-     $("#thema1").css({"display": "block"});
-     $("#matiere1").css({"display": "none"});
-      //document.getElementById('ici').innerHTML ='<label>Thematique</label><input type="text" name="Thematique"/>';
-  } 
-    
-  }
-
-   function fct2() {
-  var checkBox = document.getElementById("matiere");
-  if (checkBox.checked == true){
-      $("#matiere1").css({"display": "block"});
-      $("#thema1").css({"display": "none"});
-      //document.getElementById('ici').innerHTML ='<label>Matiere</label><input type="text" name="Matiere"/>';
-  } 
-    
-  }
-
-     $(document).ready(function(){
-          
-
-     });
-</script>
+   
 {% endblock %}

@@ -4,21 +4,58 @@
     <h2 class="titre">Nouvelle Question</h2>
     <div class="box">
         <div class="box_ajout">
-            {{ form_start(ajouter_question_form) }}
-            <div class="">
-                {{ form_errors(ajouter_question_form) }}
-            </div>
-            <div class="zone_input">
-                    <div class="input">{{ form_row(ajouter_question_form.question) }}</div>
-                    <div class="input">{{ form_row(ajouter_question_form.type) }}</div>
-                    <div class="input">{{ form_row(ajouter_question_form.propositions) }}</div>
-                    <div class="">{{ form_row(ajouter_question_form.autre_proposition) }}</div>
-                    <div class="">{{ form_row(ajouter_question_form.thematique) }}</div>
-                    <div class="">{{ form_row(ajouter_question_form.matiere) }}</div>
-                    <div class="">{{ form_row(ajouter_question_form.autre_question) }}</div><br>
-                    <div class="ajouter_question_btn">{{ form_row(ajouter_question_form.ajouter) }}</div>
-            </div>
-            {{ form_end(ajouter_question_form) }}
+            <form method="post" action="{{ path('admin_ajouter_questions')}}" >
+
+            <label for="pet-select">Type de question:</label>
+
+                <select name="Type" id="pet-select">
+                    <option value="">--Type--</option>
+                    {% for MT in em2 %}
+                        <option onclick="Clk()" value={{MT.getLibelleType}}>{{MT.getLibelleType}}</option>
+                    {% endfor %}
+                    
+                </select>
+            <br>
+            <br>
+            <br>
+
+                        <div  class="contenu"> 
+                            <div id="ici">
+                                <div id="thema1" style="display:false;" ><label>Veuillez saisir la reponse correct</label>
+                                <input id="vrai" type="radio" name="VF"/><label for="vrai">vrai</label></div>
+                                <input id="faux" type="radio" name="VF"/><label for="faux">faux</label></div>
+                            </div> 
+                        </div>
+            <br>
+            <br>
+            <label for="pet-select">Choisir une matiére:</label>
+
+                <select name="pets" id="pet-select">
+                        <option value="">--Matiere--</option>
+                        {% for MT in em %}
+                            <option value={{MT.getLibelleMatiere}}>{{MT.getLibelleMatiere}}</option>
+                        {% endfor %}
+                </select>
+            <br>
+            <br>
+            <br>
+
+            <label for="pet-select">Choisir une thématique:</label>
+
+                <select name="pets" id="pet-select">
+                        <option value="">--Thématique--</option>
+                        {% for MT in em1 %}
+                            <option value={{MT.getLibelleThematique}}>{{MT.getLibelleThematique}}</option>
+                        {% endfor %}
+                </select>
+
+            <br>
+            <br>
+
+                        <input type="submit" value="Ajouter"></input>
+          </form>
         </div>
     </div>
+    
 {% endblock %}
+

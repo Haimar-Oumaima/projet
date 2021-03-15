@@ -60,7 +60,7 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
         ";
         // line 10
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 13
+        // line 17
         echo "    </head>
     <body>
         <header>
@@ -68,28 +68,32 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
             <nav>
                 <ul class=\"nav_liens\">
                     <li><a href=\"";
-        // line 19
+        // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_questions");
         echo "\">Questions</a></li>
                     <li><a href=\"";
-        // line 20
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_users");
         echo "\">Enseignants</a></li>
                     <li><a href=\"";
-        // line 21
+        // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_evaluations");
         echo "\">Evaluations</a></li>
                     <li><a href=\"";
-        // line 22
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_thematiques_matieres");
+        echo "\">Thematique/Matières</a></li>
+                    <li><a href=\"";
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
         echo "\">Se deconnecter</a></li>
                 </ul>
             </nav>
         </header>
         ";
-        // line 26
+        // line 31
         $this->displayBlock('body', $context, $blocks);
-        // line 27
+        // line 32
         echo "    </body>
 </html>
 ";
@@ -152,8 +156,12 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 11
-        echo "            ";
-        // line 12
+        echo "        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
+        <script type=\"text/javascript\" src=\"/js/formCategorieScript.js\"></script>
+
+        
+            ";
+        // line 16
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -163,7 +171,7 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
 
     }
 
-    // line 26
+    // line 31
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -193,7 +201,7 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
 
     public function getDebugInfo()
     {
-        return array (  167 => 26,  157 => 12,  155 => 11,  145 => 10,  134 => 7,  124 => 6,  105 => 5,  93 => 27,  91 => 26,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  64 => 13,  62 => 10,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  175 => 31,  165 => 16,  159 => 11,  149 => 10,  138 => 7,  128 => 6,  109 => 5,  97 => 32,  95 => 31,  88 => 27,  84 => 26,  80 => 25,  76 => 24,  72 => 23,  64 => 17,  62 => 10,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -208,6 +216,10 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
         {% endblock %}
 
         {% block javascripts %}
+        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
+        <script type=\"text/javascript\" src=\"/js/formCategorieScript.js\"></script>
+
+        
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
@@ -219,6 +231,7 @@ class __TwigTemplate_dd7d9dbeb4aeb29137d9d9ec91bee1e6dc394cffd6d1f5d00e43b475175
                     <li><a href=\"{{ path('admin_questions') }}\">Questions</a></li>
                     <li><a href=\"{{ path('admin_users') }}\">Enseignants</a></li>
                     <li><a href=\"{{ path('admin_evaluations') }}\">Evaluations</a></li>
+                    <li><a href=\"{{ path('admin_thematiques_matieres') }}\">Thematique/Matières</a></li>
                     <li><a href=\"{{ path('logout') }}\">Se deconnecter</a></li>
                 </ul>
             </nav>
