@@ -17,13 +17,8 @@ class ThematiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('libelle_thematique', ChoiceType::class, array('label' => false, 'choices' => array(
-            'Thématique' => 'thematique',
-            'Matière' => 'matiere',),
-            'expanded' => true))
-        ->add('libelle_thematique', TextType::class, array('label' => false, 'attr' => array('placeholder' => 'Ex : Anglais')))
-       // ->add('autre_categorie',ButtonType::class, array('label' => '+'))
-        ->add('ajouter',SubmitType::class, array('label' => 'Ajouter'))
+            ->add('libelleThematique')
+            ->add('Enregistrer',SubmitType::class)
         ;
     }
 

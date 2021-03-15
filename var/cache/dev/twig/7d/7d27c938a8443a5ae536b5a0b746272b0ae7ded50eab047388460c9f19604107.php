@@ -83,32 +83,35 @@ class __TwigTemplate_f2c724eba760fd7c51a93a57eb3aee756ebcda11c7916a9d1a0d40eef9a
              <thead>
             <tr>
                 <th>ID</th>
+                <th>Thematiques</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr>
             ";
-        // line 21
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["thematique"]) || array_key_exists("thematique", $context) ? $context["thematique"] : (function () { throw new RuntimeError('Variable "thematique" does not exist.', 21, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["A"]) {
-            // line 22
+        $context['_seq'] = twig_ensure_traversable((isset($context["thematiques"]) || array_key_exists("thematiques", $context) ? $context["thematiques"] : (function () { throw new RuntimeError('Variable "thematiques" does not exist.', 22, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["Thematique"]) {
+            // line 23
             echo "                <td>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["A"], "id", [], "any", false, false, false, 22), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Thematique"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Thematique"], "libelleThematique", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
 
-                
-               
                 <td>
                 <center>
                     <a href=\"";
             // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_ajouter_categorie", ["id" => twig_get_attribute($this->env, $this->source, $context["A"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_ajouter_categorie", ["id" => twig_get_attribute($this->env, $this->source, $context["Thematique"], "id", [], "any", false, false, false, 28)]), "html", null, true);
             echo "\"><i class=\"fa fa-edit\" style=\"font-size:20px\"></i></a>
                     <a href=\"";
             // line 29
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_thematique_Supprimer", ["id" => twig_get_attribute($this->env, $this->source, $context["A"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_thematique_Supprimer", ["id" => twig_get_attribute($this->env, $this->source, $context["Thematique"], "id", [], "any", false, false, false, 29)]), "html", null, true);
             echo "\"><i class=\"fas fa-trash-alt\" style=\"font-size:20px\"></i></a>
                 </center>
                 </td>
@@ -116,7 +119,7 @@ class __TwigTemplate_f2c724eba760fd7c51a93a57eb3aee756ebcda11c7916a9d1a0d40eef9a
               ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['A'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Thematique'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 34
         echo "          
@@ -151,7 +154,7 @@ class __TwigTemplate_f2c724eba760fd7c51a93a57eb3aee756ebcda11c7916a9d1a0d40eef9a
 
     public function getDebugInfo()
     {
-        return array (  122 => 34,  111 => 29,  107 => 28,  97 => 22,  93 => 21,  79 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  125 => 34,  114 => 29,  110 => 28,  103 => 24,  98 => 23,  94 => 22,  79 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -171,20 +174,20 @@ class __TwigTemplate_f2c724eba760fd7c51a93a57eb3aee756ebcda11c7916a9d1a0d40eef9a
              <thead>
             <tr>
                 <th>ID</th>
+                <th>Thematiques</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-            {% for A in thematique %}
-                <td>{{ A.id }}</td>
+            {% for Thematique in thematiques %}
+                <td>{{ Thematique.id }}</td>
+                <td>{{ Thematique.libelleThematique }}</td>
 
-                
-               
                 <td>
                 <center>
-                    <a href=\"{{ path('admin_ajouter_categorie',{'id':A.id}) }}\"><i class=\"fa fa-edit\" style=\"font-size:20px\"></i></a>
-                    <a href=\"{{ path('admin_thematique_Supprimer',{'id':A.id}) }}\"><i class=\"fas fa-trash-alt\" style=\"font-size:20px\"></i></a>
+                    <a href=\"{{ path('admin_ajouter_categorie',{'id':Thematique.id}) }}\"><i class=\"fa fa-edit\" style=\"font-size:20px\"></i></a>
+                    <a href=\"{{ path('admin_thematique_Supprimer',{'id':Thematique.id}) }}\"><i class=\"fas fa-trash-alt\" style=\"font-size:20px\"></i></a>
                 </center>
                 </td>
             </tr>

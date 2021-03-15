@@ -110,9 +110,12 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
         echo "    </p>
     <h2 class=\"titre\">Nouvelle thématique ou matière</h2>
     <div class=\"box\">
-        <div class=\"box_ajout\">
+        <div class=\"box_ajout\">   
+             
+        <h3> <center> Choisissez ce que vous voulez ajouter </center></h3>
+
         <form method=\"post\" action=\"";
-        // line 23
+        // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_ajouter_categorie");
         echo "\" >
             <div>
@@ -137,7 +140,8 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             <div class=\"\">
             
             </div>
-            <input type=\"submit\" value=\"Ajouter\"></input>
+            <input class=\"button_ajouter\" type=\"submit\" value=\"Ajouter\" onclick=\"return confirm('Bien ajouté !')\"></input>
+            
           </form>
         </div>
     </div>
@@ -166,7 +170,7 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
 
     public function getDebugInfo()
     {
-        return array (  116 => 23,  110 => 19,  107 => 18,  98 => 16,  93 => 15,  90 => 14,  82 => 9,  79 => 8,  76 => 7,  73 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  119 => 26,  110 => 19,  107 => 18,  98 => 16,  93 => 15,  90 => 14,  82 => 9,  79 => 8,  76 => 7,  73 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -192,7 +196,10 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
     </p>
     <h2 class=\"titre\">Nouvelle thématique ou matière</h2>
     <div class=\"box\">
-        <div class=\"box_ajout\">
+        <div class=\"box_ajout\">   
+             
+        <h3> <center> Choisissez ce que vous voulez ajouter </center></h3>
+
         <form method=\"post\" action=\"{{ path('admin_ajouter_categorie')}}\" >
             <div>
             <label>Thematique</label>
@@ -216,7 +223,8 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             <div class=\"\">
             
             </div>
-            <input type=\"submit\" value=\"Ajouter\"></input>
+            <input class=\"button_ajouter\" type=\"submit\" value=\"Ajouter\" onclick=\"return confirm('Bien ajouté !')\"></input>
+            
           </form>
         </div>
     </div>

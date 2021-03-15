@@ -98,27 +98,19 @@ class AdminController extends AbstractController
 
     public function thematiques_matieres(Request $request)
     {
-        $thematique= new Thematique;
+        $thematiques= new Thematique;
+        $matieres= new Matiere;
         $form = $this->createFormBuilder(null)
                 ->add('titre', TextType::class)
                 ->add('submit', SubmitType::class, array('label' => 'Rechercher', 'attr' => ['class' => 'btn btn-primary']  ))
                 ->getForm();
 
-        /* Recherche par titre de film 
-            $form->handleRequest($request);
-            if($form->isSubmitted() && $form->isValid()) { 
-               
-                $titre = $form['titre']->getData();
+        $thematiques=$this->getDoctrine()->getRepository(Thematique::class)->findAll();
+        $matieres=$this->getDoctrine()->getRepository(Matiere::class)->findAll();
 
-                $acteurs = $this->getDoctrine()->getRepository(Acteur::class)->findByFilm($titre);
-                return $this->render('acteur/accueil.html.twig', 
-                    array('Acteur' => $acteurs, 
-                    'myform' => $form->createView()));
-            }*/
-        $thematique=$this->getDoctrine()->getRepository(Thematique::class)->findAll();
-
-        return $this->render('admin/ThematiqueMatiere.html.twig',  
-            array( 'thematique' => $thematique, 
+        return $this->render('admin/thematiquesMatieres.html.twig',  
+            array( 'thematiques' => $thematiques,
+            'matieres'=>$matieres,
             'myform' => $form->createView() ));
     }
     public function ajouter_question(Request $request)
@@ -143,6 +135,62 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_thematiques_matieres',["Thematique"=>$Thematique]);
     }
 
+    public function supprimer_matiere($id) {
+        $en=$this->getDoctrine()->getManager();
+        $rest=$en->getRepository(Matiere::class);
+        $Matiere=$rest->find($id);
+        $en->remove($Matiere);
+        $en->flush();
+        $this->addFlash('danger', 'Matiere a été bien supprimé');
+        return $this->redirectToRoute('admin_thematiques_matieres',["Matiere"=>$Matiere]);
+    }
+
+
+    public function modifier_thematique($id,Request $request) {
+        $thematique=$this->getDoctrine()->getRepository(Thematique::class)->find($id);
+        $form=$this->createForm(ThematiqueType::class,$thematique);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request->request->get($form->getName()));
+    
+            if ($form->isSubmitted() && $form->isValid()) {
+                
+    
+                $em=$this->getDoctrine()->getManager();
+                $em->flush();
+                // perform some action...
+                $this->addFlash('success', 'Thématique a été bien modifié');
+                return $this->redirectToRoute('admin_thematiques_matieres');
+            }
+        }
+        return $this->render('admin/modifierThematique.html.twig', [
+            
+            'form'  =>  $form->createView(),
+        ]);
+    }
+
+    public function modifier_matiere($id,Request $request) {
+        $matiere=$this->getDoctrine()->getRepository(Matiere::class)->find($id);
+        $form_matiere=$this->createForm(MatiereType::class,$matiere);
+
+        if ($request->isMethod('POST')) {
+            $form_matiere->submit($request->request->get($form_matiere->getName()));
+    
+            if ($form_matiere->isSubmitted() && $form_matiere->isValid()) {
+                
+    
+                $em=$this->getDoctrine()->getManager();
+                $em->flush();
+                // perform some action...
+                $this->addFlash('success', 'Matière a été bien modifié');
+                return $this->redirectToRoute('admin_thematiques_matieres');
+            }
+        }
+        return $this->render('admin/modifierMatiere.html.twig', [
+            
+            'form_matiere'  =>  $form_matiere->createView(),
+        ]);
+    }
 
     public function ajouter_categorie(Request $request)
     {

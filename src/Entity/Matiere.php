@@ -22,7 +22,7 @@ class Matiere
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $libelle_matiere;
+    private $libelleMatiere;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="matiere_question")
@@ -41,12 +41,12 @@ class Matiere
 
     public function getLibelleMatiere(): ?string
     {
-        return $this->libelle_matiere;
+        return $this->libelleMatiere;
     }
 
-    public function setLibelleMatiere(string $libelle_matiere): self
+    public function setLibelleMatiere(string $libelleMatiere): self
     {
-        $this->libelle_matiere = $libelle_matiere;
+        $this->libelleMatiere = $libelleMatiere;
 
         return $this;
     }

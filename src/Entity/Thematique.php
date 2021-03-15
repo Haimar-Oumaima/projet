@@ -24,7 +24,7 @@ class Thematique
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $libelle_thematique;
+    private $libelleThematique;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="thematique_question")
@@ -43,12 +43,12 @@ class Thematique
 
     public function getLibelleThematique(): ?string
     {
-        return $this->libelle_thematique;
+        return $this->libelleThematique;
     }
 
-    public function setLibelleThematique(string $libelle_thematique): self
+    public function setLibelleThematique(string $libelleThematique): self
     {
-        $this->libelle_thematique = $libelle_thematique;
+        $this->libelleThematique = $libelleThematique;
 
         return $this;
     }

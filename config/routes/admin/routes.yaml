@@ -41,3 +41,15 @@ admin_thematiques_matieres :
 admin_thematique_Supprimer:
     path: /Supprimer/{id}
     controller: App\Controller\AdminController::Supprimer
+
+admin_matiere_Supprimer:
+    path: /supprimer_matiere/{id}
+    controller: App\Controller\AdminController::supprimer_matiere
+
+admin_modifier_thematique:
+    path: /modifier_thematique/{id}
+    controller: App\Controller\AdminController::modifier_thematique
+
+admin_modifier_matiere:
+    path: /modifier_matiere/{id}
+    controller: App\Controller\AdminController::modifier_matiere

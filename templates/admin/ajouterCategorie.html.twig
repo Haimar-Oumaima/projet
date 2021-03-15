@@ -19,7 +19,10 @@
     </p>
     <h2 class="titre">Nouvelle thématique ou matière</h2>
     <div class="box">
-        <div class="box_ajout">
+        <div class="box_ajout">   
+             
+        <h3> <center> Choisissez ce que vous voulez ajouter </center></h3>
+
         <form method="post" action="{{ path('admin_ajouter_categorie')}}" >
             <div>
             <label>Thematique</label>
@@ -43,7 +46,8 @@
             <div class="">
             
             </div>
-            <input type="submit" value="Ajouter"></input>
+            <input class="button_ajouter" type="submit" value="Ajouter" onclick="return confirm('Bien ajouté !')"></input>
+            
           </form>
         </div>
     </div>

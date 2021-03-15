@@ -50,7 +50,14 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/admin/Supprimer/([^/]++)(*:194)'
+                .'|/admin/(?'
+                    .'|Supprimer/([^/]++)(*:197)'
+                    .'|supprimer_matiere/([^/]++)(*:231)'
+                    .'|modifier_(?'
+                        .'|thematique/([^/]++)(*:270)'
+                        .'|matiere/([^/]++)(*:294)'
+                    .')'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -61,8 +68,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        194 => [
-            [['_route' => 'admin_thematique_Supprimer', '_controller' => 'App\\Controller\\AdminController::Supprimer'], ['id'], null, null, false, true, null],
+        197 => [[['_route' => 'admin_thematique_Supprimer', '_controller' => 'App\\Controller\\AdminController::Supprimer'], ['id'], null, null, false, true, null]],
+        231 => [[['_route' => 'admin_matiere_Supprimer', '_controller' => 'App\\Controller\\AdminController::supprimer_matiere'], ['id'], null, null, false, true, null]],
+        270 => [[['_route' => 'admin_modifier_thematique', '_controller' => 'App\\Controller\\AdminController::modifier_thematique'], ['id'], null, null, false, true, null]],
+        294 => [
+            [['_route' => 'admin_modifier_matiere', '_controller' => 'App\\Controller\\AdminController::modifier_matiere'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
