@@ -108,7 +108,7 @@ class __TwigTemplate_4a587ba115fb9622576602f993a1981706632f9a4738a32867725246f60
         }
         // line 19
         echo "    </p>
-    <h2 class=\"titre\">Nouvelle thématique ou matière</h2>
+    <h2 class=\"titre\">Modification de la matiere</h2>
     <div class=\"box\">
         <div class=\"box_ajout\"> 
           ";
@@ -176,7 +176,7 @@ class __TwigTemplate_4a587ba115fb9622576602f993a1981706632f9a4738a32867725246f60
                         {% endfor%}
                     {% endif %}
     </p>
-    <h2 class=\"titre\">Nouvelle thématique ou matière</h2>
+    <h2 class=\"titre\">Modification de la matiere</h2>
     <div class=\"box\">
         <div class=\"box_ajout\"> 
           {{ form_start(form_matiere) }}

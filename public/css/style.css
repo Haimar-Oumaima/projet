@@ -21,7 +21,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #ec7357;
+    background-color: rgb(136, 0, 226);
 }
 #titre_page{
     cursor: pointer;
@@ -37,7 +37,7 @@ header{
     padding: 0 20px;
 }
 .nav_liens  li a:hover{
-    color: #0088a9;
+    color: #910572;
 }
 .elements{
     height: 92vh;
@@ -65,7 +65,7 @@ header{
 #ajouter_evaluation, #ajouter_utilisateur, #ajouter_question {
     padding: 10px 20px;
     border-radius: 20px;
-    background-color: #ec7357;
+    background-color: #1ab399;
     display: block;
     text-align: center;
     width: 200px;
@@ -77,7 +77,7 @@ header{
 #ajouter_categorie {
     padding: 10px 20px;
     border-radius: 20px;
-    background-color: #ec7357;
+    background-color: #1faa98;
     display: block;
     text-align: center;
     width: 250px;
@@ -92,7 +92,7 @@ header{
 }
 
 #ajouter_evaluation:hover, #ajouter_utilisateur:hover, #ajouter_categorie:hover,  #ajouter_question:hover{
-    background-color: #f59c88;
+    background-color: #23b3ab;
 }
 .titre {
     text-align: center;

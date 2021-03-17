@@ -129,8 +129,14 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             </div>
             <div class=\"contenu\"> 
                 <div id=\"ici\">
-                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Thematique</label><input type=\"text\" name=\"Thematique\"/></div>
-                    <div id=\"matiere1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Matiere</label><input type=\"text\" name=\"Matiere\"/></div>
+                    <div id=\"thema1\" style=\"display:none;\">
+                        <label>Veuillez saisir votre nouvelle Thematique</label>
+                        <input type=\"text\" name=\"Thematique\"/>
+                    </div>
+                    <div id=\"matiere1\" style=\"display:none;\">
+                        <label>Veuillez saisir votre nouvelle Matiere</label>
+                        <input type=\"text\" name=\"Matiere\"/>
+                    </div>
                 </div> 
             </div>
      
@@ -212,8 +218,14 @@ class __TwigTemplate_7284dd2641cda5d674a595c3c2e1794bca97addee5356d05e5b0744572a
             </div>
             <div class=\"contenu\"> 
                 <div id=\"ici\">
-                    <div id=\"thema1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Thematique</label><input type=\"text\" name=\"Thematique\"/></div>
-                    <div id=\"matiere1\" style=\"display:none;\"><label>Veuillez saisir votre nouvelle Matiere</label><input type=\"text\" name=\"Matiere\"/></div>
+                    <div id=\"thema1\" style=\"display:none;\">
+                        <label>Veuillez saisir votre nouvelle Thematique</label>
+                        <input type=\"text\" name=\"Thematique\"/>
+                    </div>
+                    <div id=\"matiere1\" style=\"display:none;\">
+                        <label>Veuillez saisir votre nouvelle Matiere</label>
+                        <input type=\"text\" name=\"Matiere\"/>
+                    </div>
                 </div> 
             </div>
      
