@@ -65,35 +65,41 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <h2 class=\"titre\">Nouvelle Question</h2>
+        echo "
+    <h2 class=\"titre\">Nouvelle Question</h2>
     <div class=\"box\">
         <div class=\"box_ajout\">
             <form method=\"post\" action=\"";
-        // line 7
+        // line 8
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_ajouter_questions");
         echo "\" >
+
+            <div id=\"question\" style=\"display:block;\">
+                    <label>Veuillez saisir votre question :</label>
+                    <input type=\"text\" name=\"question\"/>
+            </div>
 
             <label for=\"pet-select\">Type de question:</label>
 
                 <select name=\"Type\" id=\"type_select\" onchange=\"fct3()\">
                     <option value=\"\">--Type--</option>
                     ";
-        // line 13
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["em2"]) || array_key_exists("em2", $context) ? $context["em2"] : (function () { throw new RuntimeError('Variable "em2" does not exist.', 13, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["em2"]) || array_key_exists("em2", $context) ? $context["em2"] : (function () { throw new RuntimeError('Variable "em2" does not exist.', 19, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["MT"]) {
-            // line 14
+            // line 20
             echo "                        <option  value=";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleType", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 20), "html", null, true);
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleType", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleType", [], "any", false, false, false, 20), "html", null, true);
             echo "</option>
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['MT'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 21
         echo "   
                 </select>
             <br>
@@ -103,50 +109,73 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                             <div id=\"ici\">
                                 <div id=\"vf\" style=\"display:none;\" >
                                     <label>Veuillez saisir la reponse correct</label>
-                                    <input id=\"vrai\" type=\"radio\" name=\"VF\"/>
+                                    <input id=\"vrai\" type=\"radio\" name=\"VF\" value=\"Vrai\"/>
                                     <label for=\"vrai\">vrai</label>                               
-                                    <input id=\"faux\" type=\"radio\" name=\"VF\"/>
+                                    <input id=\"faux\" type=\"radio\" name=\"VF\" value=\"Faux\"/>
                                     <label for=\"faux\">faux</label>
                                 </div>
 
                                 <div id=\"libre\" style=\"display:none;\">
-                                    <label>Veuillez saisir votre réponse approximative</label>
+                                    <label>Veuillez saisir un exemple de réponse correcte</label>
                                     <input type=\"text\" name=\"Libre\"/>
                                 </div>
 
-                                <div id=\"qcm\" style=\"display:none;\">
-                                    <input type=\"checkbox\" id=\"choix1\" name=\"choix1\" value=\"\">
-                                    <input for=\"choix1\" type=\"text\" name=\"qcm\"/>
-                                    <input type=\"checkbox\" id=\"choix2\" name=\"choix2\" value=\"\">
-                                    <input for=\"choix2\" type=\"text\" name=\"qcm\"/>
-                                    <input type=\"checkbox\" id=\"choix3\" name=\"choix3\" value=\"\">
-                                    <input for=\"choix3\" type=\"text\" name=\"qcm\"/>
+                                 <div id=\"numerique\" style=\"display:none;\">
+                                    <label>Veuillez saisir la réponse correcte :</label>
+                                    <input type=\"number\" name=\"Numerique\"/>
                                 </div>
+
+                                <div  id=\"qcm\" style=\"display:none;\">
+                                
+                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultipe\" value=\"1\">
+                                    <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
+                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultipe\" value=\"2\">
+                                    <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
+                                    <input type=\"checkbox\" id=\"3\" name=\"ChoixMultipe\" value=\"3\">
+                                    <input for=\"3\" type=\"text\" name=\"choixx3\"/><br>
+
+                                   <div  class=\"appand\">  </div>
+                                    <a class=\"X\" id=\"update\" >+</a>
+                                </div>
+
+                                <div  id=\"qcu\" style=\"display:none;\">
+
+                                    <input id=\"0\" type=\"radio\" name=\"UNIQUE\" value=\"0\">
+                                    <input for=\"0\" type=\"text\" name=\"choix0\"/><br>                               
+                                    <input id=\"1\" type=\"radio\" name=\"UNIQUE\" value=\"1\">
+                                    <input for=\"1\" type=\"text\" name=\"choix1\"/><br>
+                                    <input id=\"2\" type=\"radio\" name=\"UNIQUE\" value=\"2\">
+                                    <input for=\"2\" type=\"text\" name=\"choix2\"/><br>
+                                    
+                                   <div  class=\"appand\">  </div>
+                                    <a class=\"X\" id=\"up\" >+</a>
+                                </div>
+
                             </div> 
                         </div>
             <br>
         
             <label for=\"pet-select\">Choisir une matiére:</label>
 
-                <select name=\"pets\" id=\"pet-select\">
+                <select name=\"matiere\" id=\"pet-select\">
                         <option value=\"\">--Matiere--</option>
                         ";
-        // line 51
+        // line 80
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["em"]) || array_key_exists("em", $context) ? $context["em"] : (function () { throw new RuntimeError('Variable "em" does not exist.', 51, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["em"]) || array_key_exists("em", $context) ? $context["em"] : (function () { throw new RuntimeError('Variable "em" does not exist.', 80, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["MT"]) {
-            // line 52
+            // line 81
             echo "                            <option value=";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleMatiere", [], "any", false, false, false, 52), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 81), "html", null, true);
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleMatiere", [], "any", false, false, false, 52), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleMatiere", [], "any", false, false, false, 81), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['MT'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 83
         echo "                </select>
             <br>
             <br>
@@ -154,58 +183,108 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
 
             <label for=\"pet-select\">Choisir une thématique:</label>
 
-                <select name=\"pets\" id=\"pet-select\">
+                <select name=\"thematique\" id=\"pet-select\">
                         <option value=\"\">--Thématique--</option>
                         ";
-        // line 63
+        // line 92
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["em1"]) || array_key_exists("em1", $context) ? $context["em1"] : (function () { throw new RuntimeError('Variable "em1" does not exist.', 63, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["em1"]) || array_key_exists("em1", $context) ? $context["em1"] : (function () { throw new RuntimeError('Variable "em1" does not exist.', 92, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["MT"]) {
-            // line 64
+            // line 93
             echo "                            <option value=";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleThematique", [], "any", false, false, false, 64), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 93), "html", null, true);
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleThematique", [], "any", false, false, false, 64), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleThematique", [], "any", false, false, false, 93), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['MT'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 66
+        // line 95
         echo "                </select>
 
             <br>
             <br>
 
-                        <input type=\"submit\" value=\"Ajouter\"></input>
+                        <input class=\"ecrire\" name=\"submit\" type=\"submit\" value=\"Ajouter\"></input>
           </form>
+          
         </div>
     </div>
 
-<script>
-    function fct3() {
+<script type=\"text/javascript\">
+
+ 
+\$(document).ready(function() {
+var count = 4;
+
+  \$(\"#update\").click(function() {
+    var xs=count++;
+   
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultipe' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx3\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+
+//\$(\"#up\").click(function() {
+    //var xss=count++;
+   
+//\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix'/><br>\").appendTo(\".appand\"); })
+
+});
+
+
+function fct3() {
   var x = document.getElementById(\"type_select\").value;
   //document.getElementById(\"demo\").innerHTML = x;
 
- if (x == \"Vrai_Faux\"){
-  \$(\"#vf\").css({\"display\": \"block\"});
-    \$(\"#libre\").css({\"display\": \"none\"});
+            if (x == 1){
+            \$(\"#vf\").css({\"display\": \"block\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            } 
+            if (x == 4){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"block\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            // \$(\"<input type='checkbox' id='choix3' name='choix3' value=''><input for='choix3' type='text' name='qcm'/><br>\").appendTo(\".appand\");
 
-} 
- if (x == \"Réponse\"){
-  \$(\"#vf\").css({\"display\": \"none\"});
-  \$(\"#libre\").css({\"display\": \"block\"});
-  \$(\"#qcm\").css({\"display\": \"none\"});
 
-} 
- if (x == \"Choix_Unique\"){
-  \$(\"#vf\").css({\"display\": \"none\"});
-  \$(\"#libre\").css({\"display\": \"none\"});
-  \$(\"#qcm\").css({\"display\": \"block\"});
+            } 
+            if (x == 2){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"block\"});
 
-} 
+
+            } 
+            if (x == 5){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"block\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+
+            } 
+
+            if (x == 3){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"block\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            } 
+
 }
+
+
+
+
+
 </script>
 ";
         
@@ -228,7 +307,7 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
 
     public function getDebugInfo()
     {
-        return array (  176 => 66,  165 => 64,  161 => 63,  150 => 54,  139 => 52,  135 => 51,  97 => 15,  86 => 14,  82 => 13,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  205 => 95,  194 => 93,  190 => 92,  179 => 83,  168 => 81,  164 => 80,  103 => 21,  92 => 20,  88 => 19,  74 => 8,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -236,17 +315,23 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
         return new Source("{% extends 'layouts/adminLayout.html.twig' %}
 
 {% block body %}
+
     <h2 class=\"titre\">Nouvelle Question</h2>
     <div class=\"box\">
         <div class=\"box_ajout\">
             <form method=\"post\" action=\"{{ path('admin_ajouter_questions')}}\" >
+
+            <div id=\"question\" style=\"display:block;\">
+                    <label>Veuillez saisir votre question :</label>
+                    <input type=\"text\" name=\"question\"/>
+            </div>
 
             <label for=\"pet-select\">Type de question:</label>
 
                 <select name=\"Type\" id=\"type_select\" onchange=\"fct3()\">
                     <option value=\"\">--Type--</option>
                     {% for MT in em2 %}
-                        <option  value={{MT.getLibelleType}}>{{MT.getLibelleType}}</option>
+                        <option  value={{MT.getId}}>{{MT.getLibelleType}}</option>
                     {% endfor %}   
                 </select>
             <br>
@@ -256,35 +341,58 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                             <div id=\"ici\">
                                 <div id=\"vf\" style=\"display:none;\" >
                                     <label>Veuillez saisir la reponse correct</label>
-                                    <input id=\"vrai\" type=\"radio\" name=\"VF\"/>
+                                    <input id=\"vrai\" type=\"radio\" name=\"VF\" value=\"Vrai\"/>
                                     <label for=\"vrai\">vrai</label>                               
-                                    <input id=\"faux\" type=\"radio\" name=\"VF\"/>
+                                    <input id=\"faux\" type=\"radio\" name=\"VF\" value=\"Faux\"/>
                                     <label for=\"faux\">faux</label>
                                 </div>
 
                                 <div id=\"libre\" style=\"display:none;\">
-                                    <label>Veuillez saisir votre réponse approximative</label>
+                                    <label>Veuillez saisir un exemple de réponse correcte</label>
                                     <input type=\"text\" name=\"Libre\"/>
                                 </div>
 
-                                <div id=\"qcm\" style=\"display:none;\">
-                                    <input type=\"checkbox\" id=\"choix1\" name=\"choix1\" value=\"\">
-                                    <input for=\"choix1\" type=\"text\" name=\"qcm\"/>
-                                    <input type=\"checkbox\" id=\"choix2\" name=\"choix2\" value=\"\">
-                                    <input for=\"choix2\" type=\"text\" name=\"qcm\"/>
-                                    <input type=\"checkbox\" id=\"choix3\" name=\"choix3\" value=\"\">
-                                    <input for=\"choix3\" type=\"text\" name=\"qcm\"/>
+                                 <div id=\"numerique\" style=\"display:none;\">
+                                    <label>Veuillez saisir la réponse correcte :</label>
+                                    <input type=\"number\" name=\"Numerique\"/>
                                 </div>
+
+                                <div  id=\"qcm\" style=\"display:none;\">
+                                
+                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultipe\" value=\"1\">
+                                    <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
+                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultipe\" value=\"2\">
+                                    <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
+                                    <input type=\"checkbox\" id=\"3\" name=\"ChoixMultipe\" value=\"3\">
+                                    <input for=\"3\" type=\"text\" name=\"choixx3\"/><br>
+
+                                   <div  class=\"appand\">  </div>
+                                    <a class=\"X\" id=\"update\" >+</a>
+                                </div>
+
+                                <div  id=\"qcu\" style=\"display:none;\">
+
+                                    <input id=\"0\" type=\"radio\" name=\"UNIQUE\" value=\"0\">
+                                    <input for=\"0\" type=\"text\" name=\"choix0\"/><br>                               
+                                    <input id=\"1\" type=\"radio\" name=\"UNIQUE\" value=\"1\">
+                                    <input for=\"1\" type=\"text\" name=\"choix1\"/><br>
+                                    <input id=\"2\" type=\"radio\" name=\"UNIQUE\" value=\"2\">
+                                    <input for=\"2\" type=\"text\" name=\"choix2\"/><br>
+                                    
+                                   <div  class=\"appand\">  </div>
+                                    <a class=\"X\" id=\"up\" >+</a>
+                                </div>
+
                             </div> 
                         </div>
             <br>
         
             <label for=\"pet-select\">Choisir une matiére:</label>
 
-                <select name=\"pets\" id=\"pet-select\">
+                <select name=\"matiere\" id=\"pet-select\">
                         <option value=\"\">--Matiere--</option>
                         {% for MT in em %}
-                            <option value={{MT.getLibelleMatiere}}>{{MT.getLibelleMatiere}}</option>
+                            <option value={{MT.getId}}>{{MT.getLibelleMatiere}}</option>
                         {% endfor %}
                 </select>
             <br>
@@ -293,44 +401,94 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
 
             <label for=\"pet-select\">Choisir une thématique:</label>
 
-                <select name=\"pets\" id=\"pet-select\">
+                <select name=\"thematique\" id=\"pet-select\">
                         <option value=\"\">--Thématique--</option>
                         {% for MT in em1 %}
-                            <option value={{MT.getLibelleThematique}}>{{MT.getLibelleThematique}}</option>
+                            <option value={{MT.getId}}>{{MT.getLibelleThematique}}</option>
                         {% endfor %}
                 </select>
 
             <br>
             <br>
 
-                        <input type=\"submit\" value=\"Ajouter\"></input>
+                        <input class=\"ecrire\" name=\"submit\" type=\"submit\" value=\"Ajouter\"></input>
           </form>
+          
         </div>
     </div>
 
-<script>
-    function fct3() {
+<script type=\"text/javascript\">
+
+ 
+\$(document).ready(function() {
+var count = 4;
+
+  \$(\"#update\").click(function() {
+    var xs=count++;
+   
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultipe' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx3\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+
+//\$(\"#up\").click(function() {
+    //var xss=count++;
+   
+//\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix'/><br>\").appendTo(\".appand\"); })
+
+});
+
+
+function fct3() {
   var x = document.getElementById(\"type_select\").value;
   //document.getElementById(\"demo\").innerHTML = x;
 
- if (x == \"Vrai_Faux\"){
-  \$(\"#vf\").css({\"display\": \"block\"});
-    \$(\"#libre\").css({\"display\": \"none\"});
+            if (x == 1){
+            \$(\"#vf\").css({\"display\": \"block\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            } 
+            if (x == 4){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"block\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            // \$(\"<input type='checkbox' id='choix3' name='choix3' value=''><input for='choix3' type='text' name='qcm'/><br>\").appendTo(\".appand\");
 
-} 
- if (x == \"Réponse\"){
-  \$(\"#vf\").css({\"display\": \"none\"});
-  \$(\"#libre\").css({\"display\": \"block\"});
-  \$(\"#qcm\").css({\"display\": \"none\"});
 
-} 
- if (x == \"Choix_Unique\"){
-  \$(\"#vf\").css({\"display\": \"none\"});
-  \$(\"#libre\").css({\"display\": \"none\"});
-  \$(\"#qcm\").css({\"display\": \"block\"});
+            } 
+            if (x == 2){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"block\"});
 
-} 
+
+            } 
+            if (x == 5){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"none\"});
+            \$(\"#numerique\").css({\"display\": \"block\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+
+            } 
+
+            if (x == 3){
+            \$(\"#vf\").css({\"display\": \"none\"});
+            \$(\"#libre\").css({\"display\": \"none\"});
+            \$(\"#qcm\").css({\"display\": \"block\"});
+            \$(\"#numerique\").css({\"display\": \"none\"});
+            \$(\"#qcu\").css({\"display\": \"none\"});
+            } 
+
 }
+
+
+
+
+
 </script>
 {% endblock %}
 

@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Question;
 use App\Entity\Thematique;
 use App\Entity\Matiere;
 use App\Form\ThematiqueType;
 use App\Form\MatiereType;
 use App\Entity\TypeQuestion;
+use App\Form\QuestionType;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -113,18 +115,119 @@ class AdminController extends AbstractController
             'matieres'=>$matieres,
             'myform' => $form->createView() ));
     }
+
     public function ajouter_question(Request $request)
-    {
-        $em=$this->getDoctrine()->getManager()->getRepository(Matiere::class)->findAll();   
-        //$em=$em->getLibelleMatiere();
-        $em1=$this->getDoctrine()->getManager()->getRepository(Thematique::class)->findAll();
-        $em2=$this->getDoctrine()->getManager()->getRepository(TypeQuestion::class)->findAll();
-        return $this->render('/admin/ajouterQuestion.html.twig',
-           array('em'=>$em,
-                'em1'=>$em1,
-                'em2'=>$em2));
+    {            
+            $question = new Question;
+            if(isset($_POST['question']) && isset($_POST['Type']) ) {
+                $contenu_question = $_POST['question'];
+                $type_question = $_POST['Type'];
+
+                $type = $this->getDoctrine()->getManager()->getRepository(TypeQuestion::class)->find($type_question);
+               // dd($type);
+                $question->setContenuQuestion($contenu_question);
+                $question->setTypeQuestion($type);
+                //dd($question);
+                if(isset($_POST['matiere']) && !empty($_POST['matiere'])) {
+                    $matiere = $_POST['matiere'];
+                    $matiere_question = $this->getDoctrine()->getManager()->getRepository(Matiere::class)->find($matiere);
+                    //dd($matiere_question);
+                    $question->setMatiereQuestion($matiere_question);             
+                }
+                if(isset($_POST['thematique']) && !empty($_POST['thematique'])) {
+                    $thematique = $_POST['thematique'];
+                    $thematique_question = $this->getDoctrine()->getManager()->getRepository(Thematique::class)->find($thematique);
+                    $question->setThematiqueQuestion($thematique_question);
+                }
+
+                if(isset($_POST['Libre']) && !empty($_POST['Libre'])) {
+                    $reponses=array($_POST['Libre']);            
+                    $question->setReponsesQuestion($reponses);
+                }
+
+                if(isset($_POST['Numerique']) && !empty($_POST['Numerique'])) {
+                    $reponses=array($_POST['Numerique']);            
+                    $question->setReponsesQuestion($reponses);
+                }
+
+                if(isset($_POST['VF']) && !empty($_POST['VF'])) {
+            
+                    $reponses=array($_POST['VF']);   
+                    $propositions=["Vrai", "Faux"];            
+                    $question->setReponsesQuestion($reponses);
+                    $question->setPropositionsQuestion($propositions);
+                }
+
+                if(isset($_POST['UNIQUE']) && !empty($_POST['UNIQUE'])) {
+
+                    $i= $_POST['UNIQUE'];
+
+                    $choix="choix".$i;
+                    
+                    //$propositions= array();
+                    $array = array();
+                    for($j=0;$j<=3;$j++){
+
+                        $choixx=$_POST["choix".$j];
+                        
+                        //$propositions[$j]=array($_POST[$choixx]);
+                        array_push($array, $choixx);
+                        $propositions[$j] = $array[$j];
+
+                    }
+                    //dd($propositions);
+                    $reponses=array($_POST[$choix]);   
+                    $question->setReponsesQuestion($reponses);
+                    $question->setPropositionsQuestion($propositions);
+                }
+
+                if(isset($_POST['ChoixMultipe']) && !empty($_POST['ChoixMultipe'])) {
+
+                    $i= $_POST['ChoixMultipe'];
+                    //print_r($i);
+                   // $choix="choix".$i;
+                    
+                   // $propositions= array();  
+                   $array = array();
+
+                    for($j=0;$j<=3;$j++){
+
+                        $choixxx=$_POST["choixx".$j];
+                        
+                        //$propositions[$j]=array($_POST[$choixx]);
+                        array_push($array, $choixxx);
+                        $propositions[$j] = $array[$j];
+                    }
+
+                    //$propositions=["Vrai", "Faux"];            
+                   // $question->setReponsesQuestion($reponses);
+
+                    //$reponses=array($_POST[$choix]);   
+                    //$question->setReponsesQuestion($reponses);
+                   $question->setPropositionsQuestion($propositions);
+                }
+                
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($question);
+                $entityManager->flush();
+                dd('done');
+             }
+
+                $em=$this->getDoctrine()->getManager()->getRepository(Matiere::class)->findAll();   
+                $em1=$this->getDoctrine()->getManager()->getRepository(Thematique::class)->findAll();
+                $em2=$this->getDoctrine()->getManager()->getRepository(TypeQuestion::class)->findAll();
+            
+                      
+                    return $this->render('/admin/ajouterQuestion.html.twig',
+                        array(  'em'=>$em,
+                        'em1'=>$em1,
+                        'em2'=>$em2
+                ));
+
+
     }
 
+      
     public function Supprimer($id) {
         $em=$this->getDoctrine()->getManager();
         $res=$em->getRepository(Thematique::class);

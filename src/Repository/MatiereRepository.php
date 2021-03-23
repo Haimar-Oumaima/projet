@@ -22,19 +22,17 @@ class MatiereRepository extends ServiceEntityRepository
     // /**
     //  * @return Matiere[] Returns an array of Matiere objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByLibelle($libelle)
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('m.libelle_matiere = :libelle')
+            ->setParameter('libelle', $libelle)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Matiere
@@ -45,8 +43,8 @@ class MatiereRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult()
         ;
-    }
-    */
+    }*/
+    
 
      
     

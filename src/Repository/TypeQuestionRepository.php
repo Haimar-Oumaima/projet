@@ -22,19 +22,17 @@ class TypeQuestionRepository extends ServiceEntityRepository
     // /**
     //  * @return TypeQuestion[] Returns an array of TypeQuestion objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByLibelle($libelle)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('t.libelle_type = :libelle')
+            ->setParameter('libelle', $libelle)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?TypeQuestion
