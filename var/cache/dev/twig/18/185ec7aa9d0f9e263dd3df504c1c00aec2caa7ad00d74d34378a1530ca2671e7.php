@@ -127,12 +127,14 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
 
                                 <div  id=\"qcm\" style=\"display:none;\">
                                 
-                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultipe\" value=\"1\">
+                                    <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
+                                    <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
+
+                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
                                     <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
-                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultipe\" value=\"2\">
+                                    
+                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
                                     <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
-                                    <input type=\"checkbox\" id=\"3\" name=\"ChoixMultipe\" value=\"3\">
-                                    <input for=\"3\" type=\"text\" name=\"choixx3\"/><br>
 
                                    <div  class=\"appand\">  </div>
                                     <a class=\"X\" id=\"update\" >+</a>
@@ -160,22 +162,22 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                 <select name=\"matiere\" id=\"pet-select\">
                         <option value=\"\">--Matiere--</option>
                         ";
-        // line 80
+        // line 82
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["em"]) || array_key_exists("em", $context) ? $context["em"] : (function () { throw new RuntimeError('Variable "em" does not exist.', 80, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["em"]) || array_key_exists("em", $context) ? $context["em"] : (function () { throw new RuntimeError('Variable "em" does not exist.', 82, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["MT"]) {
-            // line 81
+            // line 83
             echo "                            <option value=";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 81), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 83), "html", null, true);
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleMatiere", [], "any", false, false, false, 81), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleMatiere", [], "any", false, false, false, 83), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['MT'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 83
+        // line 85
         echo "                </select>
             <br>
             <br>
@@ -186,22 +188,22 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                 <select name=\"thematique\" id=\"pet-select\">
                         <option value=\"\">--Thématique--</option>
                         ";
-        // line 92
+        // line 94
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["em1"]) || array_key_exists("em1", $context) ? $context["em1"] : (function () { throw new RuntimeError('Variable "em1" does not exist.', 92, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["em1"]) || array_key_exists("em1", $context) ? $context["em1"] : (function () { throw new RuntimeError('Variable "em1" does not exist.', 94, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["MT"]) {
-            // line 93
+            // line 95
             echo "                            <option value=";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 93), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getId", [], "any", false, false, false, 95), "html", null, true);
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleThematique", [], "any", false, false, false, 93), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["MT"], "getLibelleThematique", [], "any", false, false, false, 95), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['MT'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 95
+        // line 97
         echo "                </select>
 
             <br>
@@ -307,7 +309,7 @@ function fct3() {
 
     public function getDebugInfo()
     {
-        return array (  205 => 95,  194 => 93,  190 => 92,  179 => 83,  168 => 81,  164 => 80,  103 => 21,  92 => 20,  88 => 19,  74 => 8,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  207 => 97,  196 => 95,  192 => 94,  181 => 85,  170 => 83,  166 => 82,  103 => 21,  92 => 20,  88 => 19,  74 => 8,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -359,12 +361,14 @@ function fct3() {
 
                                 <div  id=\"qcm\" style=\"display:none;\">
                                 
-                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultipe\" value=\"1\">
+                                    <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
+                                    <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
+
+                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
                                     <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
-                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultipe\" value=\"2\">
+                                    
+                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
                                     <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
-                                    <input type=\"checkbox\" id=\"3\" name=\"ChoixMultipe\" value=\"3\">
-                                    <input for=\"3\" type=\"text\" name=\"choixx3\"/><br>
 
                                    <div  class=\"appand\">  </div>
                                     <a class=\"X\" id=\"update\" >+</a>

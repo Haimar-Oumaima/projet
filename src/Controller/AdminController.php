@@ -166,7 +166,7 @@ class AdminController extends AbstractController
                     
                     //$propositions= array();
                     $array = array();
-                    for($j=0;$j<=3;$j++){
+                    for($j=0;$j<3;$j++){
 
                         $choixx=$_POST["choix".$j];
                         
@@ -181,31 +181,84 @@ class AdminController extends AbstractController
                     $question->setPropositionsQuestion($propositions);
                 }
 
-                if(isset($_POST['ChoixMultipe']) && !empty($_POST['ChoixMultipe'])) {
+                if(isset($_POST['ChoixMultiple']) && !empty($_POST['ChoixMultiple'])) {
 
-                    $i= $_POST['ChoixMultipe'];
-                    //print_r($i);
-                   // $choix="choix".$i;
-                    
-                   // $propositions= array();  
-                   $array = array();
+
+                    $array = array();
 
                     for($j=0;$j<=3;$j++){
 
-                        $choixxx=$_POST["choixx".$j];
-                        
+                        $choixx=$_POST["choixx".$j];
+                        print_r($choixx);
                         //$propositions[$j]=array($_POST[$choixx]);
-                        array_push($array, $choixxx);
+                        array_push($array, $choixx);
                         $propositions[$j] = $array[$j];
+                        print_r($array);
+
                     }
 
-                    //$propositions=["Vrai", "Faux"];            
-                   // $question->setReponsesQuestion($reponses);
+                        if(!empty($_POST['ChoixMultiple'])) {
 
-                    //$reponses=array($_POST[$choix]);   
-                    //$question->setReponsesQuestion($reponses);
-                   $question->setPropositionsQuestion($propositions);
+                                   $array2 = array();
+                                   $x=$_POST['ChoixMultiple'];
+
+                                  // $genres = implode(',', $_POST['ChoixMultiple']);
+                                  // print_r($genres);
+                                   //print_r($genres[1]);
+
+                                   $c=count($x);
+                                    for($i=0;$i<$c;$i++){
+
+                                    $value=$x[$i];
+
+                                        print_r($value);
+
+                                    $choixx=$_POST["choixx".$value];
+
+                                    array_push($array2, $choixx);
+                                    print_r($array2);
+                                   }
+                        }
+                     
+                  /*  $i= $_POST['ChoixMultipe'];
+                    
+                  //print_r($i);
+
+                    //$choix="choixx".$i;
+                    //print_r($choix);
+
+                    //$propositions= array();
+                    $array = array();
+                    $i=0;
+
+                    for($j=1;$j<=3;$j++){
+                        
+                            $choixx=$_POST['choixx'.$j];
+                        
+                            //for($i=1;$i<=3;$i++){
+
+                            if (isset($_POST[$choixx])) {
+
+                               // $propositions[$j]=array($_POST[$choixx]);
+
+                                array_push($array, $choixx);
+                                $reponses[$i] = $array[$i];
+                                
+                                $reponses=array($_POST[$choixx]);
+                                $i++;
+                          
+                            }
+                        
+
+                    }
+                    */
+                  //  $reponses=array($_POST[$choix]);   
+                    $question->setReponsesQuestion($array2);
+                  //  $question->setPropositionsQuestion($propositions);
+                  $question->setPropositionsQuestion($propositions);
+
                 }
+                
                 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($question);
