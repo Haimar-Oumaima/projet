@@ -18,6 +18,10 @@ admin_questions :
     path: /questions
     controller: App\Controller\AdminController::questions_list
 
+admin_modifier_questions :
+    path: /modifier_question/{id}
+    controller: App\Controller\AdminController::modifier_question
+
 admin_ajouter_questions :
     path: /ajouter_question
     controller: App\Controller\AdminController::ajouter_question
@@ -53,3 +57,8 @@ admin_modifier_thematique:
 admin_modifier_matiere:
     path: /modifier_matiere/{id}
     controller: App\Controller\AdminController::modifier_matiere
+
+admin_supprimer_question :
+    path: /supprimer_question/{id}
+    controller: App\Controller\AdminController::supprimer_question
+

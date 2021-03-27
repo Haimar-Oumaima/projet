@@ -1,0 +1,182 @@
+{% extends 'layouts/adminLayout.html.twig' %}
+
+{% block body %}
+
+    <h2 class="titre">Nouvelle Question</h2>
+    <div class="box">
+        <div class="box_ajout">
+            <form method="post" action="{{ path('admin_ajouter_questions')}}" >
+
+            <div id="question" style="display:block;">
+                    <label>Veuillez saisir votre question :</label>
+                    <input type="text" name="question"/>
+            </div>
+
+            <label for="pet-select">Type de question:</label>
+
+                <select name="Type" id="type_select" onchange="fct3()">
+                    <option value="">--Type--</option>
+                    {% for MT in em2 %}
+                        <option  value={{MT.getId}}>{{MT.getLibelleType}}</option>
+                    {% endfor %}   
+                </select>
+            <br>
+            <br>
+            <br>
+                        <div  class="contenu"> 
+                            <div id="ici">
+                                <div id="vf" style="display:none;" >
+                                    <label>Veuillez saisir la reponse correct</label>
+                                    <input id="vrai" type="radio" name="VF" value="Vrai"/>
+                                    <label for="vrai">vrai</label>                               
+                                    <input id="faux" type="radio" name="VF" value="Faux"/>
+                                    <label for="faux">faux</label>
+                                </div>
+
+                                <div id="libre" style="display:none;">
+                                    <label>Veuillez saisir un exemple de réponse correcte</label>
+                                    <input type="text" name="Libre"/>
+                                </div>
+
+                                 <div id="numerique" style="display:none;">
+                                    <label>Veuillez saisir la réponse correcte :</label>
+                                    <input type="number" name="Numerique"/>
+                                </div>
+
+                                <div  id="qcm" style="display:none;">
+                                
+                                    <input type="checkbox" id="0" name="ChoixMultiple[]" value="0">
+                                    <input for="0" type="text" name="choixx0"/><br>
+
+                                    <input type="checkbox" id="1" name="ChoixMultiple[]" value="1">
+                                    <input for="1" type="text" name="choixx1"/><br>
+                                    
+                                    <input type="checkbox" id="2" name="ChoixMultiple[]" value="2">
+                                    <input for="2" type="text" name="choixx2"/><br>
+
+                                   <div  class="appand">  </div>
+                                    <a class="X" id="update" >+</a>
+                                </div>
+
+                                <div  id="qcu" style="display:none;">
+
+                                    <input id="0" type="radio" name="UNIQUE" value="0">
+                                    <input for="0" type="text" name="choix0"/><br>                               
+                                    <input id="1" type="radio" name="UNIQUE" value="1">
+                                    <input for="1" type="text" name="choix1"/><br>
+                                    <input id="2" type="radio" name="UNIQUE" value="2">
+                                    <input for="2" type="text" name="choix2"/><br>
+                                    
+                                   <div  class="appand">  </div>
+                                    <a class="X" id="up" >+</a>
+                                </div>
+
+                            </div> 
+                        </div>
+            <br>
+        
+            <label for="pet-select">Choisir une matiére:</label>
+
+                <select name="matiere" id="pet-select">
+                        <option value="">--Matiere--</option>
+                        {% for MT in em %}
+                            <option value={{MT.getId}}>{{MT.getLibelleMatiere}}</option>
+                        {% endfor %}
+                </select>
+            <br>
+            <br>
+            <br>
+
+            <label for="pet-select">Choisir une thématique:</label>
+
+                <select name="thematique" id="pet-select">
+                        <option value="">--Thématique--</option>
+                        {% for MT in em1 %}
+                            <option value={{MT.getId}}>{{MT.getLibelleThematique}}</option>
+                        {% endfor %}
+                </select>
+
+            <br>
+            <br>
+
+                        <input class="ecrire" name="submit" type="submit" value="Ajouter"></input>
+          </form>
+          
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+ 
+$(document).ready(function() {
+var count = 3;
+
+  $("#update").click(function() {
+    var xs=count++;
+   
+$("<input type='checkbox' id="+xs+" name='ChoixMultiple[]' value="+xs+"><input for="+xs+" type='text' name='choixx"+xs+"'/><br>").appendTo(".appand"); })
+
+//$("#up").click(function() {
+    //var xss=count++;
+   
+//$("<input id="+xss" type='radio name='UNIQUE' value="+xss+"><input for="+xss+" type='text' name='choix'/><br>").appendTo(".appand"); })
+
+});
+
+
+function fct3() {
+  var x = document.getElementById("type_select").value;
+  //document.getElementById("demo").innerHTML = x;
+
+            if (x == 1){
+            $("#vf").css({"display": "block"});
+            $("#libre").css({"display": "none"});
+            $("#qcm").css({"display": "none"});
+            $("#numerique").css({"display": "none"});
+            $("#qcu").css({"display": "none"});
+            } 
+            if (x == 4){
+            $("#vf").css({"display": "none"});
+            $("#libre").css({"display": "block"});
+            $("#qcm").css({"display": "none"});
+            $("#numerique").css({"display": "none"});
+            $("#qcu").css({"display": "none"});
+            // $("<input type='checkbox' id='choix3' name='choix3' value=''><input for='choix3' type='text' name='qcm'/><br>").appendTo(".appand");
+
+
+            } 
+            if (x == 2){
+            $("#vf").css({"display": "none"});
+            $("#libre").css({"display": "none"});
+            $("#qcm").css({"display": "none"});
+            $("#numerique").css({"display": "none"});
+            $("#qcu").css({"display": "block"});
+
+
+            } 
+            if (x == 5){
+            $("#vf").css({"display": "none"});
+            $("#libre").css({"display": "none"});
+            $("#qcm").css({"display": "none"});
+            $("#numerique").css({"display": "block"});
+            $("#qcu").css({"display": "none"});
+
+            } 
+
+            if (x == 3){
+            $("#vf").css({"display": "none"});
+            $("#libre").css({"display": "none"});
+            $("#qcm").css({"display": "block"});
+            $("#numerique").css({"display": "none"});
+            $("#qcu").css({"display": "none"});
+            } 
+
+}
+
+
+
+
+
+</script>
+{% endblock %}
+

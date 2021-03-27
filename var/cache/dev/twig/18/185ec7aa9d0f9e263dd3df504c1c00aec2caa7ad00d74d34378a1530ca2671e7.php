@@ -219,12 +219,12 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
 
  
 \$(document).ready(function() {
-var count = 4;
+var count = 3;
 
   \$(\"#update\").click(function() {
     var xs=count++;
    
-\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultipe' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx3\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".appand\"); })
 
 //\$(\"#up\").click(function() {
     //var xss=count++;
@@ -282,9 +282,6 @@ function fct3() {
             } 
 
 }
-
-
-
 
 
 </script>
@@ -425,12 +422,12 @@ function fct3() {
 
  
 \$(document).ready(function() {
-var count = 4;
+var count = 3;
 
   \$(\"#update\").click(function() {
     var xs=count++;
    
-\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultipe' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx3\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".appand\"); })
 
 //\$(\"#up\").click(function() {
     //var xss=count++;
@@ -488,9 +485,6 @@ function fct3() {
             } 
 
 }
-
-
-
 
 
 </script>
