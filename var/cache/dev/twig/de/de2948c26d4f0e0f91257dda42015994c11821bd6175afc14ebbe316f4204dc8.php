@@ -205,7 +205,7 @@ class __TwigTemplate_15d823e6887e4ff60e4182b28b060293c2275b88fb1a5c2cdbf7356aaab
             echo "                </th>
                 <th><a id=\"button_modifier\" class=\"button_admin\" href=\"";
             // line 67
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_modifier_questions", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 67)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_modifier_question", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 67)]), "html", null, true);
             echo "\">Modifier</a></th>
                 <th><a href=\"";
             // line 68
@@ -321,7 +321,7 @@ class __TwigTemplate_15d823e6887e4ff60e4182b28b060293c2275b88fb1a5c2cdbf7356aaab
                         {{ proposition }}
                     {% endfor %}
                 </th>
-                <th><a id=\"button_modifier\" class=\"button_admin\" href=\"{{ path('admin_modifier_questions', {'id' : question.id }) }}\">Modifier</a></th>
+                <th><a id=\"button_modifier\" class=\"button_admin\" href=\"{{ path('admin_modifier_question', {'id' : question.id }) }}\">Modifier</a></th>
                 <th><a href=\"{{ path('admin_supprimer_question', {'id' : question.id }) }}\" id=\"button_supprimer\" 
                     class=\"button_admin\" onclick=\"return confirm('Voulez-vous supprimer cette question ?')\">Supprimer</a></th>
             </tr>

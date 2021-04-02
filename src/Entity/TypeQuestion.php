@@ -22,7 +22,7 @@ class TypeQuestion
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      */
-    private $libelle_type;
+    private $libelleType;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="type_question")
@@ -41,12 +41,12 @@ class TypeQuestion
 
     public function getLibelleType(): ?string
     {
-        return $this->libelle_type;
+        return $this->libelleType;
     }
 
-    public function setLibelleType(string $libelle_type): self
+    public function setLibelleType(string $libelleType): self
     {
-        $this->libelle_type = $libelle_type;
+        $this->libelleType = $libelleType;
 
         return $this;
     }

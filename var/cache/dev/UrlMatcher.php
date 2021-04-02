@@ -52,14 +52,17 @@ return [
                 .')'
                 .'|/admin/(?'
                     .'|modifier_(?'
-                        .'|question/([^/]++)(*:208)'
-                        .'|thematique/([^/]++)(*:235)'
-                        .'|matiere/([^/]++)(*:259)'
+                        .'|question(?'
+                            .'|/([^/]++)(*:211)'
+                            .'|_suite/([^/]++)(*:234)'
+                        .')'
+                        .'|thematique/([^/]++)(*:262)'
+                        .'|matiere/([^/]++)(*:286)'
                     .')'
-                    .'|Supprimer/([^/]++)(*:286)'
+                    .'|Supprimer/([^/]++)(*:313)'
                     .'|supprimer_(?'
-                        .'|matiere/([^/]++)(*:323)'
-                        .'|question/([^/]++)(*:348)'
+                        .'|matiere/([^/]++)(*:350)'
+                        .'|question/([^/]++)(*:375)'
                     .')'
                 .')'
             .')/?$}sD',
@@ -72,12 +75,13 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        208 => [[['_route' => 'admin_modifier_questions', '_controller' => 'App\\Controller\\AdminController::modifier_question'], ['id'], null, null, false, true, null]],
-        235 => [[['_route' => 'admin_modifier_thematique', '_controller' => 'App\\Controller\\AdminController::modifier_thematique'], ['id'], null, null, false, true, null]],
-        259 => [[['_route' => 'admin_modifier_matiere', '_controller' => 'App\\Controller\\AdminController::modifier_matiere'], ['id'], null, null, false, true, null]],
-        286 => [[['_route' => 'admin_thematique_Supprimer', '_controller' => 'App\\Controller\\AdminController::Supprimer'], ['id'], null, null, false, true, null]],
-        323 => [[['_route' => 'admin_matiere_Supprimer', '_controller' => 'App\\Controller\\AdminController::supprimer_matiere'], ['id'], null, null, false, true, null]],
-        348 => [
+        211 => [[['_route' => 'admin_modifier_question', '_controller' => 'App\\Controller\\AdminController::modifier_question'], ['id'], null, null, false, true, null]],
+        234 => [[['_route' => 'admin_modifier_question_suite', '_controller' => 'App\\Controller\\AdminController::modifier_question_suite'], ['id'], null, null, false, true, null]],
+        262 => [[['_route' => 'admin_modifier_thematique', '_controller' => 'App\\Controller\\AdminController::modifier_thematique'], ['id'], null, null, false, true, null]],
+        286 => [[['_route' => 'admin_modifier_matiere', '_controller' => 'App\\Controller\\AdminController::modifier_matiere'], ['id'], null, null, false, true, null]],
+        313 => [[['_route' => 'admin_thematique_Supprimer', '_controller' => 'App\\Controller\\AdminController::Supprimer'], ['id'], null, null, false, true, null]],
+        350 => [[['_route' => 'admin_matiere_Supprimer', '_controller' => 'App\\Controller\\AdminController::supprimer_matiere'], ['id'], null, null, false, true, null]],
+        375 => [
             [['_route' => 'admin_supprimer_question', '_controller' => 'App\\Controller\\AdminController::supprimer_question'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

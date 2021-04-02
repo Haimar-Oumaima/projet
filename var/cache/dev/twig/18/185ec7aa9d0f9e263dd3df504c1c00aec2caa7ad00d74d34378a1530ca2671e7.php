@@ -125,22 +125,24 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                                     <input type=\"number\" name=\"Numerique\"/>
                                 </div>
 
-                                <div  id=\"qcm\" style=\"display:none;\">
-                                
-                                    <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
-                                    <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
+                                <div id=\"qcm\" style=\"display:none;\">
+                                    <div class=\"qcm_zone\">
+                                        <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
+                                        <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
 
-                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
-                                    <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
-                                    
-                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
-                                    <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
+                                        <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
+                                        <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
+                                        
+                                        <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
+                                        <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
 
-                                   <div  class=\"appand\">  </div>
-                                    <a class=\"X\" id=\"update\" >+</a>
+                                        <input id=\"val\"  type=\"hidden\" name=\"value\" value=\"2\" />
+                                    </div>
+                                    <div><a class=\"X\" id=\"update\" >+</a></div>
                                 </div>
+                                
 
-                                <div  id=\"qcu\" style=\"display:none;\">
+                                <div  class=\"qcu_zone\" id=\"qcu\" style=\"display:none;\">
 
                                     <input id=\"0\" type=\"radio\" name=\"UNIQUE\" value=\"0\">
                                     <input for=\"0\" type=\"text\" name=\"choix0\"/><br>                               
@@ -148,9 +150,7 @@ class __TwigTemplate_b8955bf6bb835ac4ef7b1649429601ae67ae384e51a53b14d9ce395772b
                                     <input for=\"1\" type=\"text\" name=\"choix1\"/><br>
                                     <input id=\"2\" type=\"radio\" name=\"UNIQUE\" value=\"2\">
                                     <input for=\"2\" type=\"text\" name=\"choix2\"/><br>
-                                    
-                                   <div  class=\"appand\">  </div>
-                                    <a class=\"X\" id=\"up\" >+</a>
+                                 
                                 </div>
 
                             </div> 
@@ -223,15 +223,23 @@ var count = 3;
 
   \$(\"#update\").click(function() {
     var xs=count++;
-   
-\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+   \$('#val').val(xs); 
 
-//\$(\"#up\").click(function() {
-    //var xss=count++;
-   
-//\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix'/><br>\").appendTo(\".appand\"); })
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".qcm_zone\"); });
 
 });
+
+
+/*\$(document).ready(function() {
+var countt = 3;
+
+    \$(\"#up\").click(function() {
+    var xss=countt++;
+    \$('#val_qcu').val(xs); 
+   
+\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix\"+xss+\"'/><br>\").appendTo(\".qcu_zone\"); })
+});*/
+
 
 
 function fct3() {
@@ -356,22 +364,24 @@ function fct3() {
                                     <input type=\"number\" name=\"Numerique\"/>
                                 </div>
 
-                                <div  id=\"qcm\" style=\"display:none;\">
-                                
-                                    <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
-                                    <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
+                                <div id=\"qcm\" style=\"display:none;\">
+                                    <div class=\"qcm_zone\">
+                                        <input type=\"checkbox\" id=\"0\" name=\"ChoixMultiple[]\" value=\"0\">
+                                        <input for=\"0\" type=\"text\" name=\"choixx0\"/><br>
 
-                                    <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
-                                    <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
-                                    
-                                    <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
-                                    <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
+                                        <input type=\"checkbox\" id=\"1\" name=\"ChoixMultiple[]\" value=\"1\">
+                                        <input for=\"1\" type=\"text\" name=\"choixx1\"/><br>
+                                        
+                                        <input type=\"checkbox\" id=\"2\" name=\"ChoixMultiple[]\" value=\"2\">
+                                        <input for=\"2\" type=\"text\" name=\"choixx2\"/><br>
 
-                                   <div  class=\"appand\">  </div>
-                                    <a class=\"X\" id=\"update\" >+</a>
+                                        <input id=\"val\"  type=\"hidden\" name=\"value\" value=\"2\" />
+                                    </div>
+                                    <div><a class=\"X\" id=\"update\" >+</a></div>
                                 </div>
+                                
 
-                                <div  id=\"qcu\" style=\"display:none;\">
+                                <div  class=\"qcu_zone\" id=\"qcu\" style=\"display:none;\">
 
                                     <input id=\"0\" type=\"radio\" name=\"UNIQUE\" value=\"0\">
                                     <input for=\"0\" type=\"text\" name=\"choix0\"/><br>                               
@@ -379,9 +389,7 @@ function fct3() {
                                     <input for=\"1\" type=\"text\" name=\"choix1\"/><br>
                                     <input id=\"2\" type=\"radio\" name=\"UNIQUE\" value=\"2\">
                                     <input for=\"2\" type=\"text\" name=\"choix2\"/><br>
-                                    
-                                   <div  class=\"appand\">  </div>
-                                    <a class=\"X\" id=\"up\" >+</a>
+                                 
                                 </div>
 
                             </div> 
@@ -426,15 +434,23 @@ var count = 3;
 
   \$(\"#update\").click(function() {
     var xs=count++;
-   
-\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".appand\"); })
+   \$('#val').val(xs); 
 
-//\$(\"#up\").click(function() {
-    //var xss=count++;
-   
-//\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix'/><br>\").appendTo(\".appand\"); })
+\$(\"<input type='checkbox' id=\"+xs+\" name='ChoixMultiple[]' value=\"+xs+\"><input for=\"+xs+\" type='text' name='choixx\"+xs+\"'/><br>\").appendTo(\".qcm_zone\"); });
 
 });
+
+
+/*\$(document).ready(function() {
+var countt = 3;
+
+    \$(\"#up\").click(function() {
+    var xss=countt++;
+    \$('#val_qcu').val(xs); 
+   
+\$(\"<input id=\"+xss\" type='radio name='UNIQUE' value=\"+xss+\"><input for=\"+xss+\" type='text' name='choix\"+xss+\"'/><br>\").appendTo(\".qcu_zone\"); })
+});*/
+
 
 
 function fct3() {

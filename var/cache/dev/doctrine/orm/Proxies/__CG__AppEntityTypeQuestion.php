@@ -66,10 +66,10 @@ class TypeQuestion extends \App\Entity\TypeQuestion implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'libelle_type', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'questions'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'libelleType', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'questions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'libelle_type', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'questions'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'libelleType', '' . "\0" . 'App\\Entity\\TypeQuestion' . "\0" . 'questions'];
     }
 
     /**
@@ -205,12 +205,12 @@ class TypeQuestion extends \App\Entity\TypeQuestion implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
-    public function setLibelleType(string $libelle_type): \App\Entity\TypeQuestion
+    public function setLibelleType(string $libelleType): \App\Entity\TypeQuestion
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLibelleType', [$libelle_type]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLibelleType', [$libelleType]);
 
-        return parent::setLibelleType($libelle_type);
+        return parent::setLibelleType($libelleType);
     }
 
     /**
