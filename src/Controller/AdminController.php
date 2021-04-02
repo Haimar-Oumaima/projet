@@ -198,6 +198,9 @@ class AdminController extends AbstractController
                         array_push($reponses, $choixxx);
                     }
 
+                    $question->setReponsesQuestion($reponses);
+                    $question->setPropositionsQuestion($propositions);
+
                 }
             
                 $entityManager = $this->getDoctrine()->getManager();
@@ -364,9 +367,9 @@ class AdminController extends AbstractController
 
             }
         
-            /*$entityManager = $this->getDoctrine()->getManager();
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($question);
-            $entityManager->flush();*/
+            $entityManager->flush();
             dd($question);
             return $this->redirectToRoute('admin_questions');
         }
